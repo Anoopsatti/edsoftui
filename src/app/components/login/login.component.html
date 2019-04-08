@@ -1,0 +1,26 @@
+<!--using reactive forms-->
+<div class="offset-4 col-sm-4">
+  <h4 class="text-center">Login</h4>
+<form [formGroup]='loginFormGroupTemplate' (ngSubmit)='onLoginSubmit()'>
+  <div class = 'formGroup'>
+    <label for="email">Email</label>
+    <input type="email" #emailrefvar formControlName='email' class="form-control" placeholder="email" autocomplete="email">
+    <div *ngIf="loginFormGroupTemplate.controls['email'].errors?.required" class="alert alert-danger">
+      Please enter your email
+    </div>
+    <p>{{emailrefvar.className}}</p>
+  </div>
+  <div class = 'formGroup'>
+    <label for="password">Password</label>
+    <input type="password" #passwordrefvar formControlName='password' class="form-control" placeholder="password">
+    <div *ngIf="loginFormGroupTemplate.controls['password'].errors?.required" class="alert alert-danger">
+      Please enter your password
+    </div>
+    <p>{{passwordrefvar.className}}</p>
+  </div>
+  <div class="form-group">
+    <button class='btn btn-primary'>Login</button>
+    <a routerLink="/register" class="btn btn-link">Register</a>
+  </div>
+</form>
+</div>

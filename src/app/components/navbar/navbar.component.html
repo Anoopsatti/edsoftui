@@ -1,0 +1,55 @@
+<nav class="navbar bg-light navbar-expand-sm  px-4 px-lg-5 mb-3 " style="background-color: #e3f2fd;">
+  
+  <a class="navbar-brand" [routerLink]="['/']">
+    <img src="../../../assets/pics/edsoft_logo.png" width="150px" alt="Edsoft Technologies" srcset="">
+  </a>
+
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li *ngIf="!authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/']">Meetings</a>
+      </li>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/meeting']">Meetings</a>
+      </li>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+      </li>
+      <li *ngIf="!authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/about']">Reports</a>
+      </li>
+      <li *ngIf="!authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/about']">Students</a>
+      </li>
+      <li *ngIf="!authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" [routerLink]="['/about']">Notifications</a>
+      </li>
+
+
+    </ul>
+
+    <ul class="navbar-nav mL-auto mt-2 mt-lg-0">
+      <li *ngIf="!authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}">
+        <!-- <a class="nav-link" [routerLink]="['/register']">Register</a> -->
+        <button class="btn btn-outline-primary" [routerLink]="['/register']">Register</button>
+      </li>&nbsp;
+      <li *ngIf="!authService.isLoggedIn()" class="nav-item" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}">
+        <!-- <a class="nav-link" [routerLink]="['/login']">Login</a> -->
+        <button class="btn btn-outline-primary" [routerLink]="['/login']">Login</button>
+      </li>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+        <a href="#" class="nav-link" (click)="onHandleLogout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

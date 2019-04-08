@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-end" style="margin-top: 50px">
+    <button type="button" class="btn btn-outline-primary" routerLink="/schedule">Schedule a Class</button>
+  </div>
+
+  <div class="meetings">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" routerLinkActive = 'active'>
+        <a class="nav-link active" routerLink="dashboard">Future Meetings</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" routerLink="home">Past Meetings</a>
+      </li>
+    </ul>
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- <h2 *ngIf="userData">{{userData.fullName}},{{userData.email}}</h2> -->
+
+</div>

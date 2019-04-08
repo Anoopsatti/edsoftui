@@ -1,0 +1,73 @@
+<!--using reactive forms-->
+<div class="offset-3 col-sm-6">
+  <h4 class="text-center">Scheduling Class</h4>
+  <form [formGroup]='scheduleFormGroupTemplate' (ngSubmit)='onScheduleSubmit()'>
+    <div class="form-group">
+      <label for="classTitle">Class Title</label>
+      <input type="text" #mdrefvarclassTitle class="form-control" formControlName="classTitle"
+        placeholder="Vedic Maths">
+      <div *ngIf="scheduleFormGroupTemplate.controls['classTitle'].errors" class="alert alert-danger">
+        please enter your class title
+      </div>
+      <P>{{mdrefvarclassTitle.className}}</P>
+    </div>
+
+    <div class="form-group">
+      <label for="classInfo">Class Info</label>
+      <textarea name="" id="" cols="40" rows="3" class="form-control" formControlName="classInfo" #mdrefvarclassInfo
+        placeholder="About the class"></textarea>
+      <!-- <input type="text" #mdrefvarclassInfo class="form-control" formControlName="classInfo"
+        placeholder="About the class"> -->
+      <div *ngIf="scheduleFormGroupTemplate.controls['classInfo'].errors" class="alert alert-danger">
+        please enter your class info
+      </div>
+      <P>{{mdrefvarclassInfo.className}}</P>
+    </div>
+
+    <div class="form-group">
+      <label for="classDateTime">Date & Time</label>
+      <input type="text" #mdrefvarcdt class="form-control basicflatpickr" formControlName="classDateTime">
+      <div *ngIf="scheduleFormGroupTemplate.controls['classDateTime'].errors" class="alert alert-danger">
+        please select date and time
+      </div>
+      <P>{{mdrefvarcdt.className}}</P>
+    </div>
+
+    <div class="form-group">
+      <label for="classDuration">Class Duration</label>
+      <input type="number" #mdrefvarclassDuration class="form-control" formControlName="classDuration"
+        name="classDuration">
+      <div *ngIf="scheduleFormGroupTemplate.controls['classDuration'].errors" class="alert alert-danger">
+        please enter time upto 150mins!
+      </div>
+      <P>{{mdrefvarclassDuration.className}}</P>
+    </div>
+
+    <div class="form-group form-check-inline">
+      <label for="classRecording">Recording</label> &nbsp;
+      <input style="width: auto ; column-width: initial" type="radio" id="" name="classRecording" value='no'
+        [(ngModel)]="selectedRecordingValue" (change)='onRecordingSelection()' class="form-check-input form-control"
+        formControlName="classRecording">
+      <label class="radioClass form-check-label">No</label>
+      &nbsp;
+      <input style="width: auto ; column-width: initial" type="radio" id="" name="classRecording" value='yes'
+        [(ngModel)]="selectedRecordingValue" (change)="onRecordingSelection()" class="form-check-input form-control"
+        formControlName="classRecording">
+      <label for="" class="radioClass">Yes</label>
+    </div><br>
+    <div class="form-group form-check-inline">
+      <label for="classType">Class Access</label>&nbsp;
+      <input style="width: auto ; column-width: initial" type="radio" id="" name="classType" value='private'
+        [(ngModel)]="selectedTypeValue" (change)='onTypeSelection()' class="form-control" formControlName="classType">
+      <span class="radioClass">Private</span>
+      <input style="width: auto;" type="radio" id="" name="classType" value='public' [(ngModel)]="selectedTypeValue"
+        (change)="onTypeSelection()" class="form-control" formControlName="classType">
+      <span class="radioClass">Public</span>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" [disabled]='!scheduleFormGroupTemplate.valid' class='btn btn-primary'>Register</button>
+      <a routerLink="/meeting" class='btn btn-link'>Cancel</a>
+    </div>
+  </form>
+</div>
