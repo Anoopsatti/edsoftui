@@ -1,6 +1,10 @@
 {
   "name": "edsoftui2",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anoopsatti/Angular.git"
+  },
   "scripts": {
     "ng": "ng",
     "postinstall": "ng build --prod",
